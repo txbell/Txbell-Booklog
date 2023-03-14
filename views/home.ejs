@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'BookLog'}) %>
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="hero">
+            <h2>Find Books</h2>
+            <a href="/books" class="btn">Catalogue</a>
+        </section>
+
+        <section class="about">
+            <h2>About</h2>
+            <p>I have some books and other books not quite all the books unfortunately
+            </p>
+            <a href="/about" class="btn">Learn More</a>
+        </section>
+
+        <section class="featured-books">
+            <h2>Featured Books</h2>
+            <ul class="book-grid">
+                <% for (let book of books) { %>
+                <li>
+                    <img src="<%= book.photo %>" alt="Kitten">
+                    <h3><%= book.name %></h3>
+                    <p>Release Date: <%= book.dateReleased %></p>
+                    <a href="/books/<%= book._id %>" class="btn">More Info</a>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

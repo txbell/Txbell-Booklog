@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `${book.name} | Books R Us`}) %>
+    <link rel="stylesheet" href="/styles/book-details.css">
+</head>
+
+<body><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `${book.name} | Books R Us`}) %>
+    <link rel="stylesheet" href="/styles/book-details.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div>
+        <img src="<%= book.photo %>">
+        <h2 class="book-name"><%= book.name %></h2>
+        <section>
+            <p><strong>Title:</strong> <%= book.title %></p>
+            <p><strong>Author:</strong> <%= book.author %></p>
+            <p><strong>Release Date:</strong> <%= book.dateReleased %></p>
+            <p><strong>Description:</strong> <%= book.description %></p>
+            <p><strong>Rating:</strong> <%= book.rating %></p>
+        </section>
+    </div>
+    <form method="POST" action="/reviews/new/<%= book._id %>?_method=get">
+        <input class="btn" type="submit" value="Add Review" />
+    </form>
+    <section class="reviews">
+        <% for (let review of reviews) { %>
+            <p><strong>Title:</strong> <%= review.title %></p>
+            <p><strong>Content:</strong> <%= review.content %></p>
+            <p><strong>Reviewer:</strong> <%= review.reviewer %></p>
+            <button class="btn"><a href="/reviews/<%= review._id %>/edit">Edit</a></button>
+        <% } %>
+    </section>
+    <%- include('./partials/footer.ejs') %>
+</body>

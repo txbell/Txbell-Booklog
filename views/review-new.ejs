@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Add a Review | Books R Us'}) %>
+    <link rel="stylesheet" href="/styles/review-form.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <h1>New Review Form</h1>
+
+    <form method="POST" action="/reviews/create/<%= book._id %>?_method=post">
+        <!-- User ID input -->
+        <label for="reviewer">Reviewer:</label>
+        <input type="text" id="reviewer" name="reviewer" placeholder="640fec21c703c5abc83eb1fb" required>
+        <br>
+        <!-- Review Title input -->
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Super good book!" required>
+        <br>
+        <!-- Review Content input -->
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" placeholder="I like this book because..." required></textarea>
+        <br>
+        <!-- Sumbit Review -->
+        <input type="submit" value="Create Review">
+        
+    </form>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
