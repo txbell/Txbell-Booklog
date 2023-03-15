@@ -10,9 +10,13 @@
     <%- include('./partials/nav.ejs') %>
 
     <main>
-        <section class="hero">
-            <h2>Find Books</h2>
-            <a href="/books" class="btn">Catalogue</a>
+        <section class="row">
+            <div class="col-sm-3"></div>
+            <h2 class="col-6">Find Books</h2>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <a href="/books" class="btn col-6">Catalogue</a>
+            <div class="col-sm-3"></div>
         </section>
 
         <section class="about">
@@ -39,5 +43,7 @@
 
     <%- include('./partials/footer.ejs') %>
 </body>
+
+<%- include('./partials/script.ejs') %>
 
 </html>
