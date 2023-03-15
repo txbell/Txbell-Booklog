@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Furever Friends'}) %>
+    <link rel="stylesheet" href="/styles/book-index.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="listings">
+            <h1>Available Books</h1>
+            <ul>
+                <% for (let book of books) { %>
+                <li>
+                    <figure>
+                        <img src="<%= book.photo %>">
+                        <figcaption>
+                            <h4><%= book.title %></h4>
+                            <p><%= book.author %>, released <%= book.dateReleased %>, added to website on <%= book.dateAdded %></p>
+                            <a href="/books/<%= book._id %>">Learn More</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

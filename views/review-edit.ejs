@@ -11,18 +11,18 @@
 
     <h1>Edit Review Form</h1>
 
-    <form method="POST" action="/reviews/<%= review.reviews[0]._id %>?_method=get">
+    <form method="POST" action="/reviews/<%= review.reviews[0]._id %>">
         <!-- User ID input -->
         <p><%= review.reviews[0]._id %></p>
-        <label for="reviewer">Reviewer:</label>
+        <label for="review.reviews[0].reviewer">Reviewer:</label>
         <input type="text" id="reviewer" name="reviewer" value="<%= review.reviews[0].reviewer %>" required>
         <br>
         <!-- Review Title input -->
-        <label for="title">Title:</label>
+        <label for="review.reviews[0].title">Title:</label>
         <input type="text" id="title" name="title" value="<%= review.reviews[0].title %>" required>
         <br>
         <!-- Review Content input -->
-        <label for="content">Content:</label>
+        <label for="review.reviews[0].content">Content:</label>
         <textarea id="content" name="content" required><%= review.reviews[0].content %></textarea>
         <br>
         <!-- Sumbit Review -->
