@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Furever Friends'}) %>
+    <link rel="stylesheet" href="/styles/review-index.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="listings">
+            <h1>Review</h1>
+            <ul>
+                <li>Title: <%= rev.reviews[0].title %></li>
+                <li>Reviewer: <%= rev.reviews[0].reviewer %></li>
+                <li>Review: <%= rev.reviews[0].content %></li>
+                </br>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

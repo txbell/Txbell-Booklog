@@ -23,14 +23,10 @@ const db = require('../models')
 // GET localhost:3000/reviews/
 router.get('/', (req, res) => {
 	db.Book.find({}, { reviews: true, _id: false })
-        .then(books => {
-		    // format query results to appear in one array, 
-		    // rather than an array of objects containing arrays 
-	    	const flatList = []
-	    	for (let book of books) {
-	        	flatList.push(...book.reviews)
-	    	}
-	    	res.json(flatList)
+        .then(reviews => {
+		    res.render(('review-index'), {
+                reviews: reviews,
+            })
 		}
 	)
 });
@@ -75,9 +71,11 @@ router.get('/:id', (req, res) => {
         { 'reviews._id': req.params.id },
         { 'reviews.$': true, _id: false }
     )
-        .then(() => {
-            res.redirect('/reviews/')
+    .then(review => {
+        res.render(('review-details'), {
+            rev: review,
         })
+    })
 });
 
 // Edit Route (GET/Read): This route renders a form

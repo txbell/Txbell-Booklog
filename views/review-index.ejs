@@ -3,7 +3,7 @@
 
 <head>
     <%- include('./partials/head.ejs', {title: 'Furever Friends'}) %>
-    <link rel="stylesheet" href="/styles/book-index.css">
+    <link rel="stylesheet" href="/styles/review-index.css">
 </head>
 
 <body>
@@ -11,19 +11,17 @@
 
     <main>
         <section class="listings">
-            <h1>Available Books</h1>
+            <h1>All Reviews</h1>
             <ul>
-                <% for (let book of books) { %>
-                <li>
-                    <figure>
-                        <img src="<%= book.photo %>">
-                        <figcaption>
-                            <h4><%= book.title %></h4>
-                            <p><%= book.author %>, released <%= book.dateReleased %>, added to website on <%= book.dateAdded %></p>
-                            <a href="/books/<%= book._id %>">Learn More</a>
-                        </figcaption>
-                    </figure>
-                </li>
+                <% for (let review of reviews) { %>
+                <% if (review.reviews.length !== 0) { %>
+                <% for (let rev of review.reviews) { %>
+                <li>Title: <%= rev.title %></li>
+                <li>Reviewer: <%= rev.reviewer %></li>
+                <li>Review: <%= rev.content %></li>
+                </br>
+                <% } %>
+                <% } %>
                 <% } %>
             </ul>
         </section>
