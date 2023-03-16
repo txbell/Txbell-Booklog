@@ -29,29 +29,16 @@ router.get('/', function (req, res) {
         })
 })
 
-
-// New Route (GET/Read): This route renders a form 
-// which the user will fill out to POST (create) a new location
-router.get('/new', (req, res) => {
-    res.render('new-form')
-})
-
-// Create Route (POST/Create): This route receives the POST request sent from the new route,
-// creates a new pet document using the form data, 
-// and redirects the user to the new pet's show page
-router.post('/', (req, res) => {
-    db.Pet.create(req.body)
-        .then(pet => res.redirect('/pets/' + pet._id))
-})
-
 // Show Route (GET/Read): Will display an individual book document
 // using the URL parameter (which is the document _id)
-router.get('/:id', function (req, res) {
-    db.Book.findById(req.params.id)
+router.get('/:title', function (req, res) {
+    let title = req.params.title
+    title.split('').join('%20')
+    db.Book.find({title: `${title}`})
         .then(book => {
             res.render('book-details', {
                 book: book,
-                reviews: book.reviews,
+                reviews: book[0].reviews,
             })
         })
         .catch(() => res.send('404 Error: Page Not Found'))

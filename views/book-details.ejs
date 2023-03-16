@@ -18,17 +18,17 @@
     <%- include('./partials/nav.ejs') %>
 
     <div>
-        <img src="<%= book.photo %>">
-        <h2 class="book-name"><%= book.name %></h2>
+        <img src="<%= book[0].photo %>">
+        <h2 class="book-name"><%= book[0].name %></h2>
         <section>
-            <p><strong>Title:</strong> <%= book.title %></p>
-            <p><strong>Author:</strong> <%= book.author %></p>
-            <p><strong>Release Date:</strong> <%= book.dateReleased %></p>
-            <p><strong>Description:</strong> <%= book.description %></p>
-            <p><strong>Rating:</strong> <%= book.rating %></p>
+            <p><strong>Title:</strong> <%= book[0].title %></p>
+            <p><strong>Author:</strong> <%= book[0].author %></p>
+            <p><strong>Release Date:</strong> <%= book[0].dateReleased %></p>
+            <p><strong>Description:</strong> <%= book[0].description %></p>
+            <p><strong>Rating:</strong> <%= book[0].rating %></p>
         </section>
     </div>
-    <form method="POST" action="/reviews/new/<%= book._id %>?_method=get">
+    <form method="POST" action="/reviews/new/<%= book[0].title %>?_method=get">
         <input class="btn" type="submit" value="Add Review" />
     </form>
     <section class="reviews">
@@ -41,3 +41,7 @@
     </section>
     <%- include('./partials/footer.ejs') %>
 </body>
+
+<%- include('./partials/script.ejs') %>
+
+</html>

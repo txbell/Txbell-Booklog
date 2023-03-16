@@ -12,32 +12,46 @@
     <main>
         <section class="row">
             <div class="col-sm-3"></div>
-            <h2 class="col-6">Find Books</h2>
+            <h2 class="col-12 col-sm-6">Find Books</h2>
             <div class="col-sm-3"></div>
             <div class="col-sm-3"></div>
-            <a href="/books" class="btn col-6">Catalogue</a>
+            <a href="/books" class="btn col-12 col-sm-6">Catalogue</a>
             <div class="col-sm-3"></div>
         </section>
 
-        <section class="about">
-            <h2>About</h2>
-            <p>I have some books and other books not quite all the books unfortunately
+        <section class="about row">
+            <div class="col-3"></div>
+            <h2 class="col-6">About</h2>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <p class="col-6">I have some books and other books not quite all the books unfortunately
             </p>
-            <a href="/about" class="btn">Learn More</a>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <a href="/about" class="btn col-6">Learn More</a>
+            <div class="col-3"></div>
         </section>
 
         <section class="featured-books">
-            <h2>Featured Books</h2>
-            <ul class="book-grid">
+            <div class="row gy-3">
+                <div class="col-3"></div>
+                <h2 class="col-6">Featured Books</h2>
+                <div class="col-3"></div>
+            </div>
+            <section class="book-grid col col-12">
                 <% for (let book of books) { %>
-                <li>
-                    <img src="<%= book.photo %>" alt="Kitten">
-                    <h3><%= book.name %></h3>
-                    <p>Release Date: <%= book.dateReleased %></p>
-                    <a href="/books/<%= book._id %>" class="btn">More Info</a>
-                </li>
+                <div class="row gy-3">
+                    <div class="col-1"></div>
+                    <img class="col-1 col-sm-4 gy-5" src="<%= book.photo %>" alt="Kitten">
+                    <section class="col col-6 gy-5">
+                    <h3 class="row align-self-center" display="flex"><%= book.title %></h3>
+                    <p class="row col-12">Release Date: <%= book.dateReleased %></p>
+                    <a href="/books/<%= book.title %>" class="btn row col-12">More Info</a>
+                    </section>
+                    <div class="col-1"></div>
+                </div>
                 <% } %>
-            </ul>
+            </section>
         </section>
     </main>
 

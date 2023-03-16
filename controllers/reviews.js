@@ -33,8 +33,10 @@ router.get('/', (req, res) => {
 
 // New Route (GET/Read): This route renders a form 
 // which the user will fill out to POST (create) a new location
-router.get('/new/:bookID', (req, res) => {
-    db.Book.findById(req.params.bookID)
+router.get('/new/:bookT', (req, res) => {
+    let title = req.params.bookT
+    title.split('').join('%20')
+    db.Book.find({title: `${title}`})
         .then(book => {
             res.render('review-new', {
                 book: book
@@ -44,13 +46,14 @@ router.get('/new/:bookID', (req, res) => {
 })
 
 // Create Route: POST localhost:3000/reviews/
-router.post('/create/:bookId', (req, res) => {
-    db.Book.findByIdAndUpdate(
-        req.params.bookId,
+router.post('/create/:bookT', (req, res) => {
+    let title = req.params.bookT
+    title.split('').join('%20')
+    db.Book.updateOne({title: `${title}`},
         { $push: { reviews: req.body } },
         { new: true }
     )
-    .then(book => res.redirect('/books/' + req.params.bookId))
+    .then(book => res.redirect('/books/' + req.params.bookT))
 });
 
 // Create Route (POST/Create): This route receives the POST request sent from the new route,
