@@ -51,8 +51,8 @@ a:active {
 }
 
 header {
-  background-color: var(--inPgBkgrClr);
-  padding: 10px 0;
+  background-color: rgba(72, 169, 222, 0.95);
+  padding: 10px 0 20px;
 }
 header a {
   display: flex;
@@ -79,6 +79,14 @@ a {
   text-align: center;
 }
 
+input.btn {
+  text-decoration: none;
+  color: var(--txtClr);
+  padding: 3px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 2px;
+}
+
 main {
   background-color: var(--bkgrClr);
 }
@@ -90,8 +98,9 @@ main section {
 main section .row {
   margin-bottom: 0 !important;
 }
-main section.col {
-  border-radius: 20%;
+main section .col {
+  border-radius: 2vw;
+  background-color: var(--inPgInnerClr);
 }
 main .row {
   padding: 0;
@@ -102,10 +111,12 @@ main img {
   border-radius: 10%;
 }
 
-div.row.gy-3 {
-  background-color: var(--inPgInnerClr);
-}
 div.row.gy-3.col-4 {
   border-radius: 2vw;
   padding-bottom: 10px;
+}
+
+h2.col-6 {
+  background-color: var(--inPgInnerClr);
+  border-radius: 10vh;
 }/*# sourceMappingURL=main.css.map */

@@ -17,28 +17,40 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <div>
-        <img src="<%= book[0].photo %>">
+    <div class="row">
+        <div  class="col-2 col-sm-5"></div>
+        <img class="col-8 col-sm-2" src="<%= book[0].photo %>">
+        <div  class="col-2 col-sm-5"></div>
         <h2 class="book-name"><%= book[0].name %></h2>
-        <section>
-            <p><strong>Title:</strong> <%= book[0].title %></p>
-            <p><strong>Author:</strong> <%= book[0].author %></p>
-            <p><strong>Release Date:</strong> <%= book[0].dateReleased %></p>
-            <p><strong>Description:</strong> <%= book[0].description %></p>
-            <p><strong>Rating:</strong> <%= book[0].rating %></p>
+        <section class="row col-12">
+            <div  class="col-1 col-sm-4"></div>
+            <p class="col-10 col-sm-4 row justify-content-around"><strong class="col-12">Title</strong><%= book[0].title %></p>
+            <div  class="col-1 col-sm-4"></div>
+            <div  class="col-1 col-sm-4"></div>
+            <p class="col-10 col-sm-4 row justify-content-around""><strong>Author</strong> <%= book[0].author %></p>
+            <div  class="col-1 col-sm-4"></div>
+            <div  class="col-1 col-sm-4"></div>
+            <p class="col-10 col-sm-4 row justify-content-around""><strong>Release Date</strong> <%= book[0].dateReleased %></p>
+            <div  class="col-1 col-sm-4"></div>
+            <div  class="col-1 col-sm-4"></div>
+            <p class="col-10 col-sm-4 row justify-content-around""><strong>Description</strong> <%= book[0].description %></p>
+            <div  class="col-1 col-sm-4"></div>
+            <div  class="col-1 col-sm-4"></div>
+            <p class="col-10 col-sm-4 row justify-content-around""><strong>Rating</strong> <%= book[0].rating %></p>
+            <div  class="col-1 col-sm-4"></div>
+        </section>
+        <form method="POST" action="/reviews/new/<%= book[0].title %>?_method=get">
+            <input class="btn col-8 col-sm-6" type="submit" value="Add Review" />
+        </form>
+        <section class="reviews">
+            <% for (let review of reviews) { %>
+                <p><strong>Title:</strong> <%= review.title %></p>
+                <p><strong>Content:</strong> <%= review.content %></p>
+                <p><strong>Reviewer:</strong> <%= review.reviewer %></p>
+                <button class="btn"><a href="/reviews/<%= review._id %>/edit">Edit</a></button>
+            <% } %>
         </section>
     </div>
-    <form method="POST" action="/reviews/new/<%= book[0].title %>?_method=get">
-        <input class="btn" type="submit" value="Add Review" />
-    </form>
-    <section class="reviews">
-        <% for (let review of reviews) { %>
-            <p><strong>Title:</strong> <%= review.title %></p>
-            <p><strong>Content:</strong> <%= review.content %></p>
-            <p><strong>Reviewer:</strong> <%= review.reviewer %></p>
-            <button class="btn"><a href="/reviews/<%= review._id %>/edit">Edit</a></button>
-        <% } %>
-    </section>
     <%- include('./partials/footer.ejs') %>
 </body>
 

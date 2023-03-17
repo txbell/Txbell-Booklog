@@ -1,0 +1,28 @@
+:root {
+    --txtClr: rgb(20, 0, 123);
+    --bkgrClr: rgb(58, 115, 146);
+    --inPgBkgrClr: rgba(93, 177, 223, 0.95);
+    --inPgInnerClr: rgba(255,255,255,.7);
+    --inPgBkgrFOP: rgb(139, 198, 229);
+}
+
+.row {
+    --bs-gutter-x: 0rem;
+}
+
+div {
+    &.row.col-3 {
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    background-color: var(--inPgInnerClr);
+    }
+    &.row {
+        padding-bottom: 10px;
+        background-color: var(--inPgBkgrClr);
+
+        &.col-12 {
+            background-color: var(--inPgBkgrFOP);
+        }
+    }
+}

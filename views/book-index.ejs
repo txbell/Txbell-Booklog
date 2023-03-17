@@ -11,12 +11,12 @@
     
     <div class="row">
         <div class="col-1 col-sm-3"></div>
-        <form method="POST" onSubmit="return checkAnswer();" class="col-10 col-sm-6 row  gy-3">
+        <form method="POST" onSubmit="return checkAnswer();" class="col-10 col-sm-6 row gy-1">
             <!-- User ID input -->
-            <input class="col-12" type="text" id="title" name="title" placeholder="Search for a book title here" required>
+            <input class="col-12" type="text" id="title" name="title" placeholder="Go to book by title" required>
             <!-- Sumbit Review -->
             <div class="col-3"></div>
-            <input class="col-6" type="submit" value="Search">
+            <input class="col-6" type="submit" value="Go">
             <div class="col-3"></div>
         </form>
         <div class="col-1 col-sm-3"></div>
@@ -24,20 +24,22 @@
 
     <main>
         <section class="listings">
-            <section class="book-grid col col-12">
+            <section class="book-grid row col-12 justify-content-around">
                 <div class="row col-12">
                     <div class="col-3"></div>
                     <h1 class="col-6">Available Books</h1>
                     <div class="col-3"></div>
                 </div>
                 <% for (let book of books) { %>
-                <div class="row col-4 gy-3">
-                    <img class="col-12 gy-5" src="<%= book.photo %>">
+                <div class="row col-3">
+                    <div class="col-1"></div>
+                    <img class="col-10" src="<%= book.photo %>">
+                    <div class="col-1"></div>
                     <div class="col-1"></div>
                     <section class="col col-10 gy-5">
                     <h3 class="col-12 align-self-center" display="flex"><%= book.title %></h3>
                     <p class="col-12">Release Date: <%= book.dateReleased %></p>
-                    <a href="/books/<%= book.title %>" class="btn col-12">More Info</a>
+                    <a href="/books/<%= book.title %>" class="btn col-6 justify-self-around">More Info</a>
                     </section>
                     <div class="col-1"></div>
                 </div>
