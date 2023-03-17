@@ -89,6 +89,7 @@ router.get('/:id/edit', (req, res) => {
         { 'reviews.$': true, _id: false }
     )
         .then(rev => {
+            console.log(rev)
             res.render('review-edit', {
                 review: rev,
             })

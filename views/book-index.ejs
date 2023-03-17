@@ -13,7 +13,7 @@
         <div class="col-1 col-sm-3"></div>
         <form method="POST" onSubmit="return checkAnswer();" class="col-10 col-sm-6 row  gy-3">
             <!-- User ID input -->
-            <input class="col-12" type="text" id="title" name="title" placeholder="Book Title" required>
+            <input class="col-12" type="text" id="title" name="title" placeholder="Search for a book title here" required>
             <!-- Sumbit Review -->
             <div class="col-3"></div>
             <input class="col-6" type="submit" value="Search">
@@ -25,19 +25,19 @@
     <main>
         <section class="listings">
             <section class="book-grid col col-12">
-                <div class="row">
+                <div class="row col-12">
                     <div class="col-3"></div>
                     <h1 class="col-6">Available Books</h1>
                     <div class="col-3"></div>
                 </div>
                 <% for (let book of books) { %>
-                <div class="row gy-3">
+                <div class="row col-4 gy-3">
+                    <img class="col-12 gy-5" src="<%= book.photo %>">
                     <div class="col-1"></div>
-                    <img class="col-4 col-sm-4 gy-5" src="<%= book.photo %>" alt="Kitten">
-                    <section class="col col-6 gy-5">
-                    <h3 class="row align-self-center" display="flex"><%= book.title %></h3>
-                    <p class="row col-12">Release Date: <%= book.dateReleased %></p>
-                    <a href="/books/<%= book.title %>" class="btn row col-12">More Info</a>
+                    <section class="col col-10 gy-5">
+                    <h3 class="col-12 align-self-center" display="flex"><%= book.title %></h3>
+                    <p class="col-12">Release Date: <%= book.dateReleased %></p>
+                    <a href="/books/<%= book.title %>" class="btn col-12">More Info</a>
                     </section>
                     <div class="col-1"></div>
                 </div>
