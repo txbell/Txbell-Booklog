@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: 'Furever Friends'}) %>
+    <%- include('./partials/head.ejs', {title: 'Reviews'}) %>
     <link rel="stylesheet" href="/styles/review-index.css">
 </head>
 
@@ -21,6 +21,7 @@
                 <% for (let review of reviews) { %>
                 <% if (review.reviews.length !== 0) { %>
                 <% for (let rev of review.reviews) { %>
+                <li>ID: <%= rev._id %></li>
                 <li>Title: <%= rev.title %></li>
                 <li>Reviewer: <%= rev.reviewer %></li>
                 <li>Review: <%= rev.content %></li>

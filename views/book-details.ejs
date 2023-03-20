@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: `${book.name} | Books R Us`}) %>
+    <%- include('./partials/head.ejs', {title: `${book.name} | Book Details`}) %>
     <link rel="stylesheet" href="/styles/book-details.css">
 </head>
 
@@ -42,12 +42,17 @@
         <form method="POST" action="/reviews/new/<%= book[0].title %>?_method=get">
             <input class="btn col-8 col-sm-6" type="submit" value="Add Review" />
         </form>
-        <section class="reviews">
+        <section class="reviews row justify-content-around">
+            <% let num = 0 %>
             <% for (let review of reviews) { %>
+                <div class="col-1 col-sm-3"></div>
+                <div class="reviewBox col-8 col-sm-4">
                 <p><strong>Title:</strong> <%= review.title %></p>
                 <p><strong>Content:</strong> <%= review.content %></p>
                 <p><strong>Reviewer:</strong> <%= review.reviewer %></p>
-                <button class="btn"><a href="/reviews/<%= review._id %>/edit">Edit</a></button>
+                <button class="btn"><a class="btn" href="/reviews/<%= review._id %>/edit">Edit</a></button>
+                </div>
+                <div class="col-1 col-sm-3"></div>
             <% } %>
         </section>
     </div>

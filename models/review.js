@@ -13,7 +13,7 @@ const reviewSchema = new mongoose.Schema(
             required: true
         },
         // a review can only be created if it references an existing user._id
-        reviewer: {type: String, required: true}
+        reviewer: {type: String, required: true},
         // {
         //     type: mongoose.ObjectId,
         //     ref: 'User',

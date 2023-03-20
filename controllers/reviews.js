@@ -51,6 +51,7 @@ router.post('/create/:bookT', (req, res) => {
     title.split('').join('%20')
     db.Book.updateOne({title: `${title}`},
         { $push: { reviews: req.body } },
+        { $inc: {revNum: +1}},
         { new: true }
     )
     .then(book => res.redirect('/books/' + req.params.bookT))
@@ -59,26 +60,29 @@ router.post('/create/:bookT', (req, res) => {
 // Create Route (POST/Create): This route receives the POST request sent from the new route,
 // creates a new pet document using the form data, 
 // and redirects the user to the new pet's show page
-router.post('/:revId', function (req, res) {
+router.put('/:revId', function (req, res) {
     db.Book.findOneAndUpdate(
         { 'reviews._id': req.params.revId },
         { $set: { reviews: req.body } },
         { new: true }
     )
-        .then(product => res.redirect('/reviews/' + req.params.revId))
+        .then(product => res.json(product))
+            //res.redirect('/reviews/' + req.params.revId))
 })
 
 // Show Route: GET localhost:3000/reviews/:id
 router.get('/:id', (req, res) => {
+    console.log(req.params.id)
     db.Book.findOne(
         { 'reviews._id': req.params.id },
         { 'reviews.$': true, _id: false }
     )
-    .then(review => {
-        res.render(('review-details'), {
-            rev: review,
+        .then(rev => {
+            console.log(rev)
+            res.render('review-details', {
+                review: rev,
+            })
         })
-    })
 });
 
 // Edit Route (GET/Read): This route renders a form

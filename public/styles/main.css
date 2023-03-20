@@ -68,10 +68,6 @@ html {
 footer {
   background-color: var(--inPgBkgrClr);
   padding: 10px 0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
 }
 footer a {
   display: flex;

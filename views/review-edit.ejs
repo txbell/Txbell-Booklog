@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: 'Add a Review | Books R Us'}) %>
+    <%- include('./partials/head.ejs', {title: 'Edit a Review | BookLog'}) %>
     <link rel="stylesheet" href="/styles/review-form.css">
 </head>
 
@@ -11,7 +11,7 @@
 
     <h1>Edit Review Form</h1>
 
-    <form method="POST" action="/reviews/<%= review.reviews[0]._id %>">
+    <form method="POST" action="/reviews/<%= review.reviews[0]._id %>?_method=put">
         <!-- User ID input -->
         <p><%= review.reviews[0]._id %></p>
         <label for="review.reviews[0].reviewer">Reviewer:</label>

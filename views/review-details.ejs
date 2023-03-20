@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: 'Furever Friends'}) %>
+    <%- include('./partials/head.ejs', {title: 'Review'}) %>
     <link rel="stylesheet" href="/styles/review-index.css">
 </head>
 
@@ -12,13 +12,11 @@
     <main>
         <section class="listings">
             <h1>Review</h1>
-            <ul>
-                <li>Title: <%= rev.reviews[0].title %></li>
-                <li>Reviewer: <%= rev.reviews[0].reviewer %></li>
-                <li>Review: <%= rev.reviews[0].content %></li>
-                <li>Date Created: <%= rev.reviews[0].createdAt %></li>
+                <p>Title: <%= review %></p>
+                <p>Reviewer: <%= %></p>
+                <p>Review: <%= %></p>
+                <p>Date Created: <%= %></p>
                 </br>
-            </ul>
         </section>
     </main>
 

@@ -13,6 +13,7 @@ const bookSchema = new mongoose.Schema({
     isFeatured: { type: Boolean, default: false },
     dateAdded: { type: Date, default: Date.now },
     rating: { type: String, default: 'N/A'},
+    revNum: { type: Number, default: 0},
     reviews: [reviewSchema],
 },
 { timestamps: true }
