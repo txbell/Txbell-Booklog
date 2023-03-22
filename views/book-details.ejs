@@ -51,6 +51,9 @@
                 <p><strong>Content:</strong> <%= review.content %></p>
                 <p><strong>Reviewer:</strong> <%= review.reviewer %></p>
                 <button class="btn"><a class="btn" href="/reviews/<%= review._id %>/edit">Edit</a></button>
+                <form method="POST" action="/reviews/<%= review._id %>?_method=DELETE">
+                    <input class="btn" type="submit" value="Delete" />
+                </form>
                 </div>
                 <div class="col-1 col-sm-3"></div>
             <% } %>

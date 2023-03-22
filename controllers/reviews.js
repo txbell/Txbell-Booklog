@@ -102,12 +102,16 @@ router.get('/:id/edit', (req, res) => {
 
 // Destroy Route: DELETE localhost:3000/reviews/:id
 router.delete('/:id', (req, res) => {
+    console.log('delelelelele')
     db.Book.findOneAndUpdate(
         { 'reviews._id': req.params.id },
         { $pull: { reviews: { _id: req.params.id } } },
         { new: true }
     )
-        .then(book => res.json(book))
+    .then(book => {
+        console.log(book)
+        res.redirect('/books/' + book.title)
+    })
 });
 
 
